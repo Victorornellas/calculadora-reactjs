@@ -12,10 +12,32 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
      <script type="text/babel">
          
+
+     function ListName(){
+        const [names] = React.useState(['Victor', 'Yasmin', 'Lula', 'Gabriella', 'Quinho', 'Maria', 'João', 'Pedro', 'Ana', 'Carla'])
+        const [search, setSearch] = React.useState('')
+
+
+        return (
+        <ul>
+         <input
+         type="text"
+         placeholder="pesquise o nome"
+         value={search}
+         onChange={(e) => setSearch(e.target.value)}
+         />
+         {names.filter((name) => name.toLowerCase().includes(search.toLowerCase())).map((name, index) => <li key={`${index}-${name}`}>{name}</li>)}  
+        </ul>
+
+        )
+
+
+     }
+    
      function App(){
          return (
-            <main class="p-3">
-            ...
+            <main >
+            <ListName />
             </main>
                 
             )

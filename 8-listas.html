@@ -12,10 +12,24 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
      <script type="text/babel">
          
+
+     function ListName(){
+        const [names] = React.useState(['Victor', 'Yasmin', 'Lula', 'Gabriella', 'Quinho', 'Maria', 'João', 'Pedro', 'Ana', 'Carla'])
+
+        return (
+        <ul>
+         {names.map((name, index) => <li key={`${index}-${name}`}>{name}</li>)}  
+        </ul>
+
+        )
+
+
+     }
+    
      function App(){
          return (
-            <main class="p-3">
-            ...
+            <main >
+            <ListName />
             </main>
                 
             )
